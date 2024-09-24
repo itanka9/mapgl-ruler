@@ -27,6 +27,10 @@ export class Polyline extends Evented<EventTable> {
             return;
         }
 
+        if (polylineOptions.autoClosePolygon === undefined) {
+            polylineOptions.autoClosePolygon = true;
+        }
+
         const points: GeoPoint[] = joints.map((joint, ind) => {
             const coords = joint.getCoordinates();
             const isFirst = ind === 0;
